@@ -1,21 +1,73 @@
 <h1>Details</h1>
-<ul class="list-group">
-  {{#temp}}
-    <li class="list-group-item">Name: {{ name }}</li>
-    <li class="list-group-item">City: {{ city }}</li>
-    <li class="list-group-item">County: {{ county }}</li>
-    <li class="list-group-item">Phone: {{ phone }}</li>
-    <li class="list-group-item">Homepage: {{ homepage }}</li>
-    <li class="list-group-item">E-mail: {{ email }}</li>
-    <li class="list-group-item">Latitude: <span class="lat">{{ lat }}</span></li>
-    <li class="list-group-item">Longitude: <span class="long">{{ long }}</span></li>
-    <li class="list-group-item">Address: {{ address }}</li>
-  {{/temp}}
-  {{#dbpList}}
-    <li class="list-group-item">Number of beds: {{ bed_count }}</li>
-    <li class="list-group-item">Has emergency unit: {{ emergency }}</li>
-    <li class="list-group-item">Opening year: {{ opening_year }}</li>
-    <li class="list-group-item">Abstract: {{ abstract }}</li>
-  {{/dbpList}}
-</ul>
+<head>>
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #list {
+        
+      }
+    </style>
+</head>
+<div id="list">
+      <ul class="list-group">
+        {{#temp}}
+          <li class="list-group-item">Name: {{ name }}</li>
+          <li class="list-group-item">City: {{ city }}</li>
+          <li class="list-group-item">County: {{ county }}</li>
+          <li class="list-group-item">Phone: {{ phone }}</li>
+          <li class="list-group-item">Homepage: {{ homepage }}</li>
+          <li class="list-group-item">E-mail: {{ email }}</li>
+          <li class="list-group-item">Latitude: <span class="lat">{{ lat }}</span></li>
+          <li class="list-group-item">Longitude: <span class="long">{{ long }}</span></li>
+          <li class="list-group-item">Address: {{ address }}</li>
+        {{/temp}}
+        {{#dbpList}}
+          <li class="list-group-item">Number of beds: {{ bed_count }}</li>
+          <li class="list-group-item">Has emergency unit: {{ emergency }}</li>
+          <li class="list-group-item">Opening year: {{ opening_year }}</li>
+          <li class="list-group-item">Abstract: {{ abstract }}</li>
+        {{/dbpList}}
+      </ul>
+      </div>
+<h3>My Google Maps Demo</h3>
+    <div id="map"></div>
 <button class="btn btn-primary" id="send-coords">Click me</button>
+
+<script>
+  var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 2,
+          center: new google.maps.LatLng(2.8,-187.3),
+          mapTypeId: 'terrain'
+        });
+      }
+
+
+        
+       //
+      
+      // api key : AIzaSyCJAfAcpe42f3m4--X3naOEtinhaKc8gkM
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJAfAcpe42f3m4--X3naOEtinhaKc8gkM&callback=initMap">
+    </script>
+
+
+  
+      
+    
+    
+
+
