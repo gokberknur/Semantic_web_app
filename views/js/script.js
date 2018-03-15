@@ -8,6 +8,15 @@ function getData(){
      contentType: 'application/json',
      success: function(response) {
        console.log(response);
+        var ourList = response.geoList;
+      for(var i=0, len=ourList.length; i<len; i++) {   
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(ourList[i].a,ourList[i].b),
+        title: ourList[i].l,
+       map:map
+   }); 
+                                          
+   } 
      }
    });
  };
